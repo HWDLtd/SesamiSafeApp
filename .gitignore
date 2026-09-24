@@ -1,0 +1,5 @@
+**/bin/
+**/obj/
+**/.vs/
+**/ca.cert.zip
+**/ca.cert.pem

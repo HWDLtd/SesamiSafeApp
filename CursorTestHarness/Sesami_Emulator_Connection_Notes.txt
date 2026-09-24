@@ -1,0 +1,99 @@
+Sesami Emulator / Device Core Connection Notes
+==============================================
+
+Emulator access
+---------------
+Emulator:
+https://devicecore.io
+
+Swagger / API:
+https://devicecore.io/swagger
+
+Emulator login:
+Username: 1234
+Password: 1234
+
+Access / whitelisting
+---------------------
+Access is IP-whitelisted.
+
+On 28 August 2026, HWD reported that the emulator URLs were blocked from public IP:
+45.143.120.130
+
+Sesami corrected the whitelist issue, and Simon subsequently confirmed that the emulator was accessible.
+
+Application / API connection
+----------------------------
+The Sesami QuickStart Guide says:
+
+1. Certificate
+   All connections require the Sesami self-signed certificate to be loaded into the public trust store of the computer or mobile device connecting to the API.
+   If it is not installed/trusted, the API returns an SSL certificate error.
+
+2. Backend host and port
+   The backend server host and port are configured using:
+   - Operating System environment variables, or
+   - environment.json
+
+3. HTTPS
+   Backend HTTPS connections use the configured serverhost/port.
+
+4. Development ports
+   In developer mode, Vite takes ownership of port 5173 and expects it to proxy to backend port 6174.
+
+5. SignalR
+   SignalR connects using the same configured serverhost/port.
+   The frontend should automatically retry the SignalR connection if it disconnects.
+
+6. Required API headers
+   Backend messages require the appropriate headers:
+
+   Content-Type: application/json
+   Authorization: Bearer {token}
+
+   For authenticated calls to non-anonymous endpoints, also include:
+   UserSession: JSON.stringify(userSession)
+   UserPermissions: JSON.stringify(permissions)
+
+   The UserSession and UserPermissions objects are returned by the authentication process.
+   If they are omitted where required, the backend returns not-authorized errors.
+
+7. Swagger
+   In development mode, Swagger is exposed on the configured serverhost/port under:
+   /swagger
+
+8. Startup configuration
+   The environment configuration identifies the backend server host and port.
+   The configuration precedence documented by Sesami is:
+   - Operating System Environment Variables
+   - environment.json
+
+Source documents / emails
+-------------------------
+Email thread:
+"HWD - QuickStart Guide"
+From: Greg Nichols, Sesami
+Sent: 18 September 2026
+Updated: 19 September 2026
+
+Latest attached guide:
+HWD-QuickStartGuide-v1.01.docx
+
+The email states that the guide covers:
+- initial connection to the backend
+- example metadata strapping
+- complete login workflow
+- later update added the Accept Cash workflow
+
+The guide was exported from Confluence to Word. A search of the connected HWD/Bloom Confluence did not find a Sesami-specific page, so the referenced Confluence source appears to have been on the Sesami side rather than HWD's wiki.
+
+Email thread:
+"Emulator url is blocked"
+Date: 28 August 2026
+
+This thread confirms:
+- https://devicecore.io
+- https://devicecore.io/swagger
+- emulator username/password 1234 / 1234
+- public IP 45.143.120.130 was used for whitelisting
+- Sesami corrected the whitelist and HWD confirmed access worked
