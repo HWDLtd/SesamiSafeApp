@@ -8,6 +8,7 @@ import {
 } from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 
+import { colors } from '@/src/constants/colors';
 import {
   DEFAULT_GRADIENT_ID,
   GRADIENT_IDS,
@@ -74,7 +75,7 @@ export function useBackground() {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: '#000000',
+    backgroundColor: colors.black,
   },
   background: {
     position: 'absolute',
@@ -82,15 +83,15 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     left: 0,
-    backgroundColor: '#000000',
+    backgroundColor: colors.black,
   },
   backgroundImage: {
     width: '100%',
     height: '100%',
-    backgroundColor: '#000000',
+    backgroundColor: colors.black,
   },
   content: {
     flex: 1,
-    backgroundColor: '#000000',
+    backgroundColor: colors.black,
   },
 });

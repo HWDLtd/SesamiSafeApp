@@ -15,6 +15,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { ScreenFooter } from '@/src/components/ScreenFooter';
 import { SesamiLogo } from '@/src/components/SesamiLogo';
+import { colors } from '@/src/constants/colors';
 
 type Detail = {
   label: string;
@@ -132,7 +133,7 @@ export default function AccountScreen() {
         <View style={styles.card}>
           <Text style={styles.sectionLabel}>Access token</Text>
           {isLoadingToken ? (
-            <ActivityIndicator color="#FFFFFF" style={styles.tokenLoading} />
+            <ActivityIndicator color={colors.white} style={styles.tokenLoading} />
           ) : tokenError ? (
             <Text style={styles.error}>{tokenError}</Text>
           ) : (
@@ -158,7 +159,7 @@ export default function AccountScreen() {
             isSigningOut && styles.signOutButtonDisabled,
           ]}>
           {isSigningOut ? (
-            <ActivityIndicator color="#FFFFFF" />
+            <ActivityIndicator color={colors.white} />
           ) : (
             <Text style={styles.signOutLabel}>Sign out</Text>
           )}
@@ -173,7 +174,7 @@ export default function AccountScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000000',
+    backgroundColor: colors.black,
   },
   header: {
     alignItems: 'center',
@@ -185,7 +186,7 @@ const styles = StyleSheet.create({
     gap: 16,
   },
   title: {
-    color: '#FFFFFF',
+    color: colors.white,
     fontSize: 28,
     fontWeight: '600',
     textAlign: 'center',
@@ -195,19 +196,19 @@ const styles = StyleSheet.create({
     height: 72,
     borderRadius: 36,
     alignSelf: 'center',
-    backgroundColor: '#1F1F1F',
+    backgroundColor: colors.avatar,
   },
   card: {
     borderRadius: 8,
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.12)',
-    backgroundColor: 'rgba(255, 255, 255, 0.06)',
+    borderColor: colors.surfaceBorder,
+    backgroundColor: colors.surface,
     paddingHorizontal: 16,
     paddingVertical: 14,
     gap: 12,
   },
   sectionLabel: {
-    color: '#9CA3AF',
+    color: colors.textMuted,
     fontSize: 12,
     fontWeight: '600',
     letterSpacing: 1,
@@ -217,25 +218,25 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   rowLabel: {
-    color: '#9CA3AF',
+    color: colors.textMuted,
     fontSize: 13,
   },
   rowValue: {
-    color: '#FFFFFF',
+    color: colors.white,
     fontSize: 16,
     lineHeight: 22,
   },
   empty: {
-    color: '#D1D5DB',
+    color: colors.textSecondary,
     fontSize: 15,
     lineHeight: 22,
   },
   expiry: {
-    color: '#D1D5DB',
+    color: colors.textSecondary,
     fontSize: 14,
   },
   token: {
-    color: '#FFFFFF',
+    color: colors.white,
     fontSize: 13,
     lineHeight: 20,
     fontFamily: Platform.select({ ios: 'Menlo', android: 'monospace', default: 'monospace' }),
@@ -244,7 +245,7 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
   },
   error: {
-    color: '#F87171',
+    color: colors.errorSoft,
     fontSize: 14,
     lineHeight: 20,
   },
@@ -254,7 +255,7 @@ const styles = StyleSheet.create({
     minHeight: 52,
     borderRadius: 4,
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.4)',
+    borderColor: colors.outline,
     marginTop: 8,
   },
   signOutButtonPressed: {
@@ -264,7 +265,7 @@ const styles = StyleSheet.create({
     opacity: 0.7,
   },
   signOutLabel: {
-    color: '#FFFFFF',
+    color: colors.white,
     fontSize: 16,
     fontWeight: '600',
   },

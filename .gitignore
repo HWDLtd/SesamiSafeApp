@@ -3,3 +3,7 @@
 **/.vs/
 **/ca.cert.zip
 **/ca.cert.pem
+
+# macOS
+.DS_Store
+*.pem

@@ -1,4 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
+
+import { colors } from '@/src/constants/colors';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export function ScreenFooter() {
@@ -17,7 +19,7 @@ const styles = StyleSheet.create({
     paddingTop: 16,
   },
   copyright: {
-    color: '#9CA3AF',
+    color: colors.textMuted,
     fontSize: 12,
     letterSpacing: 0.4,
   },

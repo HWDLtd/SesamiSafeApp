@@ -12,6 +12,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { ScreenFooter } from '@/src/components/ScreenFooter';
 import { SesamiLogo } from '@/src/components/SesamiLogo';
+import { colors } from '@/src/constants/colors';
 import {
   AUTH0_AUDIENCE,
   AUTH0_CUSTOM_SCHEME,
@@ -37,7 +38,7 @@ export default function SignInScreen() {
         { scope: AUTH0_SCOPE, audience: AUTH0_AUDIENCE },
         { customScheme: AUTH0_CUSTOM_SCHEME },
       );
-      router.replace('/account');
+      router.replace('/safe-sign-in');
     } catch (error) {
       const message =
         error instanceof Error ? error.message : 'Unable to sign in. Please try again.';
@@ -71,7 +72,7 @@ export default function SignInScreen() {
             isSigningIn && styles.signInButtonDisabled,
           ]}>
           {isSigningIn ? (
-            <ActivityIndicator color="#0A0A0A" />
+            <ActivityIndicator color={colors.ink} />
           ) : (
             <Text style={styles.signInLabel}>Sign In</Text>
           )}
@@ -103,7 +104,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     minHeight: 56,
     borderRadius: 4,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     paddingHorizontal: 24,
   },
   signInButtonPressed: {
@@ -113,14 +114,14 @@ const styles = StyleSheet.create({
     opacity: 0.7,
   },
   signInLabel: {
-    color: '#0A0A0A',
+    color: colors.ink,
     fontSize: 17,
     fontWeight: '600',
     letterSpacing: 0.3,
   },
   error: {
     marginTop: 16,
-    color: '#F87171',
+    color: colors.errorSoft,
     fontSize: 14,
     textAlign: 'center',
     lineHeight: 20,

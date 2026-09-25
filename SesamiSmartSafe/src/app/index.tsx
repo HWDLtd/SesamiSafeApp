@@ -5,6 +5,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { ScreenFooter } from '@/src/components/ScreenFooter';
 import { SesamiLogo } from '@/src/components/SesamiLogo';
+import { colors } from '@/src/constants/colors';
 
 const SPLASH_DURATION_MS = 2500;
 
@@ -26,7 +27,7 @@ export default function SplashScreen() {
       </View>
 
       <View style={styles.center}>
-        <ActivityIndicator size="large" color="#FFFFFF" />
+        <ActivityIndicator size="large" color={colors.white} />
       </View>
 
       <ScreenFooter />
