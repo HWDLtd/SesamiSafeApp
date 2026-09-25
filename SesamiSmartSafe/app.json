@@ -1,0 +1,73 @@
+{
+  "expo": {
+    "name": "SesamiSmartSafe",
+    "slug": "sesami-smart-safe",
+    "version": "1.0.0",
+    "orientation": "portrait",
+
+    "icon": "./assets/images/icon.png",
+
+    "scheme": "sesami",
+
+    "userInterfaceStyle": "automatic",
+
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "io.sesami.app",
+      "associatedDomains": [
+        "webcredentials:auth.dev.sesami.io"
+      ]
+    },
+
+    "android": {
+      "package": "io.sesami.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/images/android-icon-foreground.png",
+        "backgroundImage": "./assets/images/android-icon-background.png",
+        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+
+    "plugins": [
+      "expo-router",
+
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/sesami-logo.png",
+          "resizeMode": "contain",
+          "backgroundColor": "#000000"
+        }
+      ],
+
+      [
+        "react-native-auth0",
+        {
+          "domain": "auth.dev.sesami.io",
+          "customScheme": "https"
+        }
+      ]
+    ],
+
+    "experiments": {
+      "typedRoutes": true
+    },
+
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "6d3806af-e2f1-4c9f-ac8c-486d026aa3f5"
+      }
+    },
+
+    "owner": "hwdevelopment"
+  }
+}
